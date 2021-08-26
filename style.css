@@ -1,0 +1,497 @@
+body{
+    margin: 0px;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    color: #444;
+    position:relative
+}
+
+.title-bar{
+    height: 5vh;
+    width: 100vw;
+    background-color: #217346;
+    color:white;
+    display: flex;
+    justify-content: center; /* align horizontal*/
+    align-items: center; /* align vertical */
+    font-size: 1rem;
+}
+
+.menu-bar{
+    background-color: #217346;
+    display: flex;
+    width: 100vw;
+    height: 5vh;
+}
+
+.menu-bar-item{
+    background-color: #217346;
+    color: white;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-bar-item.selected{
+    background-color: white;
+    color: #217346
+}
+
+.menu-bar-item:hover{
+    background-color: #185835;
+    cursor: pointer;
+}
+
+.menu-bar-item.selected:hover{
+    background-color: white;
+    cursor: default;
+}
+
+.menu-icon-bar{
+    height: 6vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    height: 100%;
+}
+
+.menu-icon:hover{
+    background-color: lightgray;
+    cursor:pointer;
+}
+
+.menu-selector{
+    height: 4.4vh;
+    font-size: 1rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+}
+
+#font-family{
+    width: 10vw;
+    min-width: 130px;
+    font-family: Noto Sans;
+}
+
+#font-size{
+    width: 3.5vw;
+    min-width: 55px;
+}
+
+.formula-bar{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+
+#selected-cell{
+    width: 120px;
+}
+
+#function-sign{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#function-input{
+    width: calc(100vw - 160px);
+}
+
+.formula-editor{
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 70%;
+    background-color: white;
+}
+.data-container{
+    height: 75vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+#select-all{
+    height:25px;
+    width:25px;
+    border-top: 0.5px solid lightgray;
+}
+
+#columns{
+    width: calc(100vw - 25px);
+    height: 25px;
+    border: 0.5px solid lightgray;
+    display: flex;
+    border-bottom: 0px;
+    overflow: hidden;
+
+}
+
+#rows{
+    width: 25px;
+    height: calc(75vh - 25px);
+    border: 0.5px solid lightgray;
+    border-right: 0px;
+    overflow: hidden;
+
+}
+
+#cells{
+    height: calc(75vh - 25px);
+    width: calc(100vw - 25px);
+    border: 0.5px solid lightgray;
+    overflow: scroll;
+    position: relative;
+
+}
+
+.column-name{
+    min-width: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.5px solid lightgray ;
+    width: 95px;
+    font-weight: 600;
+}
+
+.row-name{
+    border-bottom: 0.5px solid lightgray;
+    height: 24px;
+    min-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.cell-row{
+    display: flex;
+}
+
+.input-cell{
+    width: 95px;
+    min-width: 95px;
+    height: 24px;
+    min-height: 24px;
+    border-bottom: 0.5px solid lightgray;
+    border-right: 0.5px solid lightgray;
+    padding-left: 3px;
+    padding-right: 3px;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: Noto Sans;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-cell.selected{
+    border: 3px solid #185835;
+    outline: #185835;
+}
+
+.input-cell.top-selected{
+    border-top: none;
+}
+
+.input-cell.bottom-selected{
+    border-bottom: 0.5px solid lightgray;
+}
+
+.input-cell.left-selected{
+    border-left: none;
+}
+
+.input-cell.right-selected{
+    border-right: 0.5px solid lightgray;
+}
+
+.menu-icon.selected{
+    background-color: lightgray;
+}
+
+#fill-color-icon{
+    border-bottom: 4px solid #fff;
+    padding-bottom: 2px;
+}
+
+#text-color-icon{
+    border-bottom: 4px solid #444;
+    padding-bottom: 2px;
+}
+
+.sheet-bar {
+    display: flex;
+    height: 4vh;
+    width: 100vw;
+    align-items: center;
+}
+
+.sheet-scroller {
+    display: flex;
+    align-items: center;
+}
+
+.sheet-tab-container {
+    display: flex;
+    border-left: 0.5px solid lightgray;
+    overflow: scroll;
+}
+
+.sheet-tab {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    border-right: 0.5px solid lightgray;
+    font-weight: 600;
+}
+
+.sheet-tab.selected{
+    color: #217346;
+    border-bottom: 5px solid #217346;
+}
+
+.sheet-tab.selected:hover{
+    background-color: #fff;
+    cursor:default;
+}
+
+.sheet-tab:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.add-sheet {
+    margin-right: 10px;
+    color: #217346;
+}
+
+.scroller{
+    font-size: 30px;
+}
+
+.scroller:hover,.add-sheet:hover{
+    cursor: pointer;
+}
+
+.sheet-options-modal{
+    position:absolute;
+    background-color: #fff;
+    box-shadow: 3px 3px 5px 2px;
+}
+
+.option{
+    padding: 6px 10px 6px 10px;
+}
+
+.option:hover{
+    background-color: lightgray;
+    cursor:default
+}
+
+.sheet-modal-parent{
+    height:100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sheet-rename-modal,.sheet-delete-modal{
+    min-width: 350px;
+    box-shadow:6px 6px 10px 0px rgba(0,0,0,0.4);
+    background-color: #fff;
+}
+
+.sheet-modal-title{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #217346;
+    padding: 15px 20px 0px 20px;
+    text-align: center;
+}
+
+.sheet-modal-input-container,.sheet-modal-detail-container{
+    padding: 15px 20px 0px 20px;
+}
+
+.sheet-modal-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sheet-modal-input-title{
+    display: block;
+    padding-bottom: 5px;
+}
+
+.sheet-modal-input{
+    outline-color:#217346;
+    color: #217346;
+    width:100%;
+    height: 2rem;
+    font-weight: 400;
+}
+
+.sheet-modal-confirmation{
+    display:flex;
+    padding:20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.button{
+    border:1px solid black;
+    width: 100px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ok-button,.delete-button{
+    background-color: #217346;
+    color: #fff;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.ok-button:hover,.delete-button:hover{
+    background-color: #185835;
+    cursor: pointer;
+    
+}
+
+.cancel-button {
+    height: 40px;
+    border-radius: 3px;
+}
+
+.cancel-button:hover{
+    background-color: rgba(211, 211, 211, 0.932);
+    cursor: pointer;
+}
+
+.sheet-modal-detail-title {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.delete-icon {
+    margin-right: 5px;
+} 
+
+.loading {
+    font-size: 30px;
+    color: #217346;
+}
+
+
+.loader-parent {
+    background-color: rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+}
+.error{
+    font-size: 14px;
+    color: red;
+}
+
+.sheet-tab-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+.sheet-tab-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+  }
+  .file-modal {
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100vh;
+    width: 0vw;
+    display: flex;
+}
+
+.file-options-modal {
+    width: 12rem;
+    background-color: #217346;
+    height: 100%;
+    color: #fff;
+}
+
+.file-recent-modal {
+    background-color: #fff;
+    height: 100%;
+    width: calc(50% - 12rem);
+}
+
+.close, .new, .open, .save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.close-icon, .new-icon, .save-icon, .open-icon {
+    position: absolute;
+    left: 2rem;
+}
+
+.close {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.close-icon {
+    transform: rotate(90deg);
+}
+
+.close:hover, .new:hover, .save:hover, .open:hover {
+    background-color: #1c683e;
+    cursor: pointer;
+}
+
+.file-transparent-modal {
+    width: 50%;
+    height: 100%;
+} 
+/* excel 3 : 05 video - 30 git-add-33*/
